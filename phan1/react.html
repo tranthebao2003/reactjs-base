@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add react for website</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+</head>
+<body>
+    
+    <!-- Github: nơi lưu trữ mã nguồn (ko lấy), NPMJS (NODE PACKAGE MANAGER js): nơi lưu sản phẩm (xài phải tải)
+    UNPKG (lấy đc những thư viện đc lưu trong NPMJS dưới dạng url onl) -->
+    <script>
+        // // element đơn
+        // // DOM
+        // // tạo thẻ h1 trong html và cá property như title, class, innertex
+        // const h1Dom = document.createElement('h1')
+        // h1Dom.title = 'Hello'
+        // h1Dom.className = 'Heading'
+        // h1Dom.innerText = 'Hello guys1'
+
+        // document.body.appendChild(h1Dom)
+
+        // // React -> React-Dom thì mới render ra đc
+        // // React.createElement(type, props, chidren, n)
+        // const h1React = React.createElement('h1', {
+        //     title: 'Hello',
+        //     className: 'heading'
+        // }, 'Hello guys!')
+
+        // console.dir(h1Dom)
+        // console.log(h1React)
+
+        // // element lồng
+        // // DOM
+        // const h1Dom = document.createElement('ul')
+        // const liDom1 = document.createElement('li')
+        // liDom1.innerText = 'javascrip'
+
+        // const liDom2 = document.createElement('li')
+        // liDom2.innerText = 'react'
+
+        // h1Dom.appendChild(liDom1)
+        // h1Dom.appendChild(liDom2)
+        // document.body.appendChild(h1Dom)
+        // console.dir(h1Dom)
+
+        // // react
+        // const ulReact = React.createElement(
+        //     'ul',
+        //     {id: 'ulId'},
+        //     React.createElement('li', null, 'javascrip'),
+        //     React.createElement('li', null, 'react')
+        // )
+
+        // bài tập dùng reactjs để tạo 
+        // lên jsfiffle để kiểm tra, import đường link vào file html và code 
+        // react trog file jvs
+        // <div class="post-item">
+        //     <h2 title="Học react tại F8"> Học react js</h2>
+        //     <p>Học reactjs từ cơ bản đến nâng cao</p>
+        // </div>
+
+        const divReact = React.createElement(
+            'div',
+            {className: 'post-item'}, 
+            React.createElement('h2',{
+                title:'Học react tại F8'
+            }, 'Học react js'),
+            React.createElement('p',null, 'Học reactjs từ cơ bản đến nâng cao')
+        )
+    </script>
+</body>
+</html>

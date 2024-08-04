@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Props</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // function PostItem(): là react component, còn mấy thể div, h2... là react element
+        // đối vs react element thì tương tự như các attribute trong html. trong đó
+        // 2 props (in html) bị thay đổi là class, for(trong tag label)  => className, htmlFor
+
+        // đối vs react componet sử dụng props giống như đối số cho function
+        // ko đặt props = key vì nó sẽ trùng với key đặt biệt có sẵn trog props
+        // props giống như đối số của function nên có thể là bất kì dữ liệu nào trog jvs
+        // như array, string, function
+        // sử dụng destructuring để giảm bớt props
+        // trog ví dụ dưới {image,title,publish, des} thay cho chỗ props
+        // thì chỉ cần gọi thẳng props cần sử dụng mà ko cần có chữ props phía trước
+        function PostItem(props){
+            if(typeof(props.callback) == 'function')
+                props.callback(Math.random())
+
+            return(  
+                <div className="post-tem">
+                    <img src={props.image} alt={props.alt}/>
+                    <h2>{props.title}</h2>
+                    <p>{props.publish}</p>
+                    <p>{props.des}</p>
+                    
+                </div>
+            )
+        }
+        function Exercise(){
+            return(
+                <div id='wrapper'>
+                    <PostItem
+                    // những porps này mik có thể tự tạo và h nó sẽ trở thành porps của 
+                    // react component PostItem
+                        alt = '1 mưu tả'
+                        des = '1 Bạn có kiến thức ngôn ngữ'
+                        publish = '1 Một ngày trước<'
+                        title = '1 test'
+                        callback = {
+                            (random) =>{
+                               console.log('random: ', random)
+                            }
+                        }
+                        image = "https://vcdn1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=i2M2IgCcw574LT-bXFY92g"
+                    />
+
+                    <PostItem
+                    // những porps này mik có thể tự tạo và h nó sẽ trở thành porps của 
+                    // react component PostItem
+                        alt = '2 mưu tả'
+                        des = '2 Bạn có kiến thức ngôn ngữ'
+                        publish = '2 Một ngày trước<'
+                        title = '2 test'
+                        image = "https://vcdn1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=i2M2IgCcw574LT-bXFY92g"
+                    />
+
+                    <PostItem
+                    // những porps này mik có thể tự tạo và h nó sẽ trở thành porps của 
+                    // react component PostItem
+                        alt = '3 mưu tả'
+                        des = '3 Bạn có kiến thức ngôn ngữ'
+                        publish = '3 Một ngày trước<'
+                        title = '3 test'
+                        image = "https://vcdn1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=i2M2IgCcw574LT-bXFY92g"
+                    />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<Exercise/>, document.querySelector('#app'))
+    </script>
+</body>
+</html>

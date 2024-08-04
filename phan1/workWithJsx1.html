@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Work with jsx 1</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script type="text/babel">
+        function App(){
+            // onClick trong jvs thì là onclick => trong react chỉ khác ở chỗ sử dụng camelCase
+            // có 1 vài event bị thay đổi thì khi mik sử dụng event trong jvs thì nó sẽ
+            // đưa ra warning red thì mik sửa lại theo warning đó thôi
+            // vd dblclick
+            return(
+                <div id="wrapper">
+                    <button 
+                        onDoubleClick = {(event) => console.log(event.target)}
+                    >
+                    Click me!
+                    </button>
+                </div>
+            )
+        }
+    
+        ReactDOM.render(<App/>, document.querySelector('#app'))
+    </script>
+</body>
+</html>

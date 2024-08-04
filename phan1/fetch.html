@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+</head>
+<body>
+    <ul id="post-block"></ul>
+    <Script>
+        var postAPI = 'https://jsonplaceholder.typicode.com/posts'
+
+        // .then(post) => {}: nó trả về stream (hiểu đơn giản là 1 luồn dữ liệu)
+        fetch(postAPI)
+            .then(response =>{
+                // JSON.parse: JSON -> javascript type
+                return response.json()
+
+            })
+            .then(posts => {
+                var htmls = posts.map((post) => {
+                    return(
+                        `<li>
+                            <h2>${post.title}</h2>
+                            <p>${post.body}</p>
+                        </li>`
+                    )
+                })
+
+                var html = htmls.join('')
+                document.querySelector('#post-block').innerHTML = html
+            })
+            // nếu api bị lỗi thì in ra message
+            .catch((error) => {
+                console.log(error)
+            })
+    </Script>
+</body>
+</html>

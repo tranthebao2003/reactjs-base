@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsxRenderArray</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Responsive web design'
+            },
+            {
+                name: 'ReactJS'
+            }
+        ]
+            // khi sử dụng arrow function trog jsx nếu sử dụng
+            // cặp dấu {} thì phải có từ khóa return hoặc nếu 
+            // chỉ trả về 1 dòng thì ko cần {} thì lúc đó ko cần
+            // từ khóa return
+        const jsx1 = (
+            <ul>
+                {courses.map((item, index) => 
+                    <li key={index}>{item.name}</li>
+                )}
+            </ul>
+        )
+
+        const jsx2 = (
+            <ul>
+                {courses.map((item, index) => {
+                   return <li key={index}>{item.name}</li>
+                }
+                )}
+            </ul>
+        )
+        
+        // cách render nhìu element cug lúc React.Fragment
+        // dùng để wrap các element để có thể render nhìu e 1 lúc
+        const jsx3 = (
+            <React.Fragment>
+                <h1>Heading1</h1>
+                <h2>Heading1</h2>
+            </React.Fragment>
+        )
+
+        ReactDOM.render(jsx3,document.querySelector('#root'))
+    </script>
+</body>
+</html>

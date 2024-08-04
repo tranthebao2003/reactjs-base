@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React element types</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // // react element types: string (tạo những thẻ), function/ class
+        // // -Wrapper
+        // //     - header -> header component
+        // //     - content -> content component
+        // //     - footer -> footer component
+        // //  Biểu diễn đơn giản bới jsx
+
+        // // Khi 1 hàm mà sử dụng lm component thì nameFunction must upper chữ cái đầu
+        // function Header(){
+        //     return(
+        //         <div className="header">Header</div>
+        //     )
+        // }
+
+        // class Content extends React.Component{
+        //     render(){
+        //         return(
+        //             <div className="content">Content</div>
+        //         )
+        //     }
+        // }
+
+        // const app =(
+            
+        //     <div className="wrapper">
+        //         <Header></Header>
+        //         <Content></Content>
+        //         <div className="footer">Footer</div>
+        //     </div>
+        // )
+        
+        // ReactDOM.render(app, document.querySelector('#app'))
+
+
+        // bài tập
+        function PostItem(){
+            return(
+                <div className="post-tem">
+                    <img src="https://vcdn1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=i2M2IgCcw574LT-bXFY92g" alt=""></img>
+                    <h2 className='post-title'>c#</h2>
+                    <p className='post-desc'>Bạn có kiến thức ngôn ngữ</p>
+                    <p className='post-published'>Một ngày trước</p>
+                </div>
+            )
+        }
+        function Exercise(){
+            return(
+                <div id='wrapper'>
+                    <PostItem/>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<Exercise/>, document.querySelector('#app'))
+    </script>
+</body>
+</html>

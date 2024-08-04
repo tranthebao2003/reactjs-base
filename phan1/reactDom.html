@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add react for website</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+    //  react có thể lm việc react-dom để làm web và lm vc với react-native để lm ios, androi
+    //  đó là lí do vì sao ng ta tách react-dom ra lm 1 thư viện riêng ra khỏi react
+
+    const postItem = React.createElement(
+            'div',
+            {className: 'post-item'},
+
+            React.createElement(
+                'h2',
+                {
+                title:'Học react tại F8'
+                }, 
+                'Học react js'),
+
+            React.createElement('p',null, 'Học reactjs từ cơ bản đến nâng cao')
+        )
+    const root = document.querySelector('#root')
+    
+     // react
+        const ulReact = React.createElement(
+            'ul',
+            {id: 'ulId'},
+            React.createElement('li', null, 'javascrip'),
+            React.createElement('li', null, 'react')
+        )
+    // nó sẽ bị ReactDOM.render(postItem,root) ghi đè lên
+    ReactDOM.render(ulReact,root)
+    // ReactDom.render(element, container, callback)
+    ReactDOM.render(postItem,root)
+    </script>
+</body>
+</html>

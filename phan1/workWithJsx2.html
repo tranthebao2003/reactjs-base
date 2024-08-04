@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Work with jsx 2</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // // đây là 1 object Form trong đó có 2 method
+        // // và ta có thể sử dụng đc 2 method này như 2 component
+        // // nếu sử dụng như này thì component chữ cái đầu ko viết hoa
+        // // thì nó cũng ko warning nhưng quy ước là component chữ cái đầu
+        // // phải viết hóa bắt buộc tuân theo
+
+        // const Form = {
+        //     Input (){
+        //         return <input/>
+        //     },
+        //     CheckBox(){
+        //         return <input type = 'checkbox' />
+        //     }
+        // }
+        // function App(){
+
+        //     const type = 'CheckBox'
+        //     // truy cập method object thông qua key, nhưng nếu để thẳng 
+        //     // Form[type] vào < Form[type] /> thì nó sẽ lỗi vì vậy ta phải
+        //     // dùng 1 biến khác viết hoa chữ cái đầu để lm
+        //     const Component = Form[type]
+        //     return(
+        //         <div id='wrapper'>
+        //             <Form.Input/>
+        //             <Form.CheckBox/>
+        //             <Component/>
+        //         </div>
+        //     )
+        // }
+
+        function Button({title, href, onClick}){
+            // khi nó là biến đại diện nó vẫn render ra đc nhưng lưu ý biến phải viết hao
+            // những thằng boolean, undefile, null sẽ ko đc render
+            let Component = 'button'
+            const props ={}
+
+            // khi có href thì nó sẽ biến thành thẻ a
+            if(href){
+                Component = 'a'
+                props.href = href
+            }
+
+            // khi có onClick thì nó sẽ là btn
+            if(onClick){
+                // Component = 'button'
+                props.onClick = onClick
+            }
+            // Trong trường hợp {...props}, nó đang được sử dụng như một toán 
+            // tử spread. Khi bạn gặp {...props} trong React, nó thường được s
+            // ử dụng để chuyển tất cả các thuộc tính từ một đối tượng props 
+            // (thường được truyền xuống từ thành phần cha) vào một thành phần con. Đ
+            // iều này giúp đơn giản hóa việc chuyển props giữa các 
+            // thành phần và làm cho mã của bạn trở nên linh hoạt hơn
+            return(
+                <Component {...props}>{title}</Component>
+            )
+        }
+
+        function App(){
+            return(
+                <div id='wrapper'>
+                    <Button 
+                        title = 'Click me!'
+                        href = 'https://vcdn1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=i2M2IgCcw574LT-bXFY92g'
+                        onClick = {() => console.log(Math.random())}
+                    />
+                </div>
+            )
+        }
+    
+        ReactDOM.render(<App/>, document.querySelector('#root'))
+    </script>
+</body>
+</html>
